@@ -5,7 +5,7 @@ This is a web application built with Flask, HTML, CSS, and JavaScript that allow
 ## Features
 
 - Users can input a flight number to retrieve information about that flight.
-- The application displays information such as registration, model, operator, callsign, velocity, track, flight, geometric altitude, barometric altitude, and owner (if applicable) of the flight.
+- The application displays information such as registration, operator, callsign, velocity, track, flight, geometric altitude and barometric altitudeof the flight.
 - The application features a dark theme for improved visibility.
 - Search history is displayed in the sidebar, allowing users to easily access past flight searches.
 - Users can delete past flight searches from the search history.
