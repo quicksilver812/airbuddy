@@ -12,7 +12,7 @@ This is a web application built with Flask, HTML, CSS, and JavaScript that allow
 - 
 ## Screenshots
 
-![Home Screen](screenshots/homescreen.png){ height=500px }
+![Home Screen](screenshots/homescreen2.png){ height=500px }
 
 ## Installation
 
