@@ -9,7 +9,7 @@ This is a web application built with Flask, HTML, CSS, and JavaScript that allow
 - The application features a dark theme for improved visibility.
 - Search history is displayed in the sidebar, allowing users to easily access past flight searches.
 - Users can delete past flight searches from the search history.
-- 
+  
 ## Screenshots
 
 ![Home Screen](screenshots/homescreen2.png){ height=500px }
