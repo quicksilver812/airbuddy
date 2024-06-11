@@ -1,6 +1,6 @@
 document.getElementById('flight-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    const flightNumber = document.getElementById('flight-number').value;
+    const flightNumber = document.getElementById('flight-number').value.trim().toUpperCase();
     fetch('/search', {
         method: 'POST',
         headers: {
@@ -36,13 +36,21 @@ function displayFlightInfo(data) {
 }
 
 function updateSearchHistory(flightNumber, data) {
-    const searchHistory = document.getElementById('search-history');
-    const listItem = document.createElement('li');
-    listItem.textContent = flightNumber;
-    listItem.addEventListener('click', () => {
-        displayFlightInfo(searchHistoryData[flightNumber]);
-    });
-    searchHistory.appendChild(listItem);
-
     searchHistoryData[flightNumber] = data;
+
+    const searchHistory = document.getElementById('search-history');
+    const existingListItem = Array.from(searchHistory.children).find(item => item.textContent === flightNumber);
+
+    if (existingListItem) {
+        existingListItem.addEventListener('click', () => {
+            displayFlightInfo(searchHistoryData[flightNumber]);
+        });
+    } else {
+        const listItem = document.createElement('li');
+        listItem.textContent = flightNumber;
+        listItem.addEventListener('click', () => {
+            displayFlightInfo(searchHistoryData[flightNumber]);
+        });
+        searchHistory.appendChild(listItem);
+    }
 }
