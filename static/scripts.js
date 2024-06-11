@@ -39,7 +39,7 @@ function updateSearchHistory(flightNumber, data) {
     searchHistoryData[flightNumber] = data;
 
     const searchHistory = document.getElementById('search-history');
-    const existingListItem = Array.from(searchHistory.children).find(item => item.textContent === flightNumber);
+    const existingListItem = Array.from(searchHistory.children).find(item => item.querySelector('.flight-number').textContent === flightNumber);
 
     if (existingListItem) {
         existingListItem.addEventListener('click', () => {
@@ -47,10 +47,24 @@ function updateSearchHistory(flightNumber, data) {
         });
     } else {
         const listItem = document.createElement('li');
-        listItem.textContent = flightNumber;
-        listItem.addEventListener('click', () => {
+        const span = document.createElement('span');
+        span.textContent = flightNumber;
+        span.classList.add('flight-number');
+        span.addEventListener('click', () => {
             displayFlightInfo(searchHistoryData[flightNumber]);
         });
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.classList.add('delete-btn');
+        deleteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            delete searchHistoryData[flightNumber];
+            searchHistory.removeChild(listItem);
+        });
+
+        listItem.appendChild(span);
+        listItem.appendChild(deleteBtn);
         searchHistory.appendChild(listItem);
     }
 }

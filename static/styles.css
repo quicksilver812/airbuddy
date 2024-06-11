@@ -85,6 +85,9 @@ ul {
 }
 
 li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
     margin: 5px 0;
     cursor: pointer;
@@ -96,4 +99,22 @@ li {
 
 li:hover {
     background-color: #444;
+}
+
+.delete-btn {
+    background-color: #e60000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.flight-number {
+    flex-grow: 1;
+    margin-right: 10px;
 }
